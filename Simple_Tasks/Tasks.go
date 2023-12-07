@@ -1,10 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unicode"
+)
 
 func main() {
-	a := 17
+	a := 6
 	b := 13
+
+	str := carrac
+	abcd := [1,2,5,6,8,2]
 
 	sum := SumOfTwoNumbers(a, b)
 	fmt.Printf("Sum of Two Numbers: %v\n", sum)
@@ -14,6 +20,16 @@ func main() {
 
 	even := EvenNumber(a)
 	fmt.Printf("Number %v is even: %v\n", a, even)
+
+	Print100()
+
+	factorial := CalcFactorial(a)
+	fmt.Printf("Number %v is factorial of %v", factorial, a)
+
+	palindrome := PalindromeCheck(str)
+	fmt.Printf("String %v is palindrome: %v", str, palindrome)
+
+	average := 
 }
 
 // Task 1: Sum of Two Numbers
@@ -48,14 +64,47 @@ func EvenNumber(a int) bool {
 // Task 4: Print Numbers from 1 to 100
 // Write a program, using a loop, to print all numbers from 1 to 100.
 
+func Print100() {
+	for i := 1; i <= 100; i++ {
+		fmt.Print(i, " ")
+	}
+}
+
 // Task 5: Factorial of a Number
 // Create a function that calculates the factorial of a number.
+
+func CalcFactorial(a int) int {
+	res := 1
+	for i := 1; i <= a; i++ {
+		res = res * i
+	}
+	return res
+}
 
 // Task 6: Palindrome Check
 // Implement a function that checks if a string is a palindrome.
 
+func PalindromeCheck(str string) bool {
+	strl = unicode.ToLower(str)
+
+	for right, left := 0, len(str)-1; left < right {
+		if strl[left] != strl[right] {
+			return false
+		}
+	}
+	return true
+}
+
 // Task 7: Average of an Array
 // Write a program that finds the average value of an array of numbers.
+
+func AverageOfArray(abc []int) int (
+	summ := 0
+	for _,n := range abc{
+		summ += n
+	}
+	return summ/len(abc)
+)
 
 // Task 8: Nth Fibonacci Number
 // Create a function that returns the Nth Fibonacci number.
