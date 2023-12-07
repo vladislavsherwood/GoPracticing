@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"unicode"
+	"strings"
 )
 
 func main() {
 	a := 6
 	b := 13
 
-	str := carrac
-	abcd := [1,2,5,6,8,2]
+	str := "carrac"
+	abcd := []int{1, 2, 5, 6, 8, 2, 19}
 
 	sum := SumOfTwoNumbers(a, b)
 	fmt.Printf("Sum of Two Numbers: %v\n", sum)
@@ -24,12 +24,13 @@ func main() {
 	Print100()
 
 	factorial := CalcFactorial(a)
-	fmt.Printf("Number %v is factorial of %v", factorial, a)
+	fmt.Printf("Number %v is factorial of %v\n", factorial, a)
 
 	palindrome := PalindromeCheck(str)
-	fmt.Printf("String %v is palindrome: %v", str, palindrome)
+	fmt.Printf("String %v is palindrome: %v\n", str, palindrome)
 
-	average := 
+	average := AverageOfArray(abcd)
+	fmt.Printf("Number %v is average of %v\n", average, abcd)
 }
 
 // Task 1: Sum of Two Numbers
@@ -85,12 +86,14 @@ func CalcFactorial(a int) int {
 // Implement a function that checks if a string is a palindrome.
 
 func PalindromeCheck(str string) bool {
-	strl = unicode.ToLower(str)
+	strl := strings.ToLower(str)
 
-	for right, left := 0, len(str)-1; left < right {
+	for right, left := 0, len(str)-1; left < right; {
 		if strl[left] != strl[right] {
 			return false
 		}
+		left++
+		right--
 	}
 	return true
 }
@@ -98,13 +101,13 @@ func PalindromeCheck(str string) bool {
 // Task 7: Average of an Array
 // Write a program that finds the average value of an array of numbers.
 
-func AverageOfArray(abc []int) int (
+func AverageOfArray(abc []int) float64 {
 	summ := 0
-	for _,n := range abc{
+	for _, n := range abc {
 		summ += n
 	}
-	return summ/len(abc)
-)
+	return float64(summ) / float64(len(abc))
+}
 
 // Task 8: Nth Fibonacci Number
 // Create a function that returns the Nth Fibonacci number.
